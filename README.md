@@ -25,9 +25,9 @@ python data_downloader.py
 ```
 
 ### 🔨 How to Run
-PIAP-Mamba training is performed in two stages. The main.py script provides a unified Trainer class designed for both phases. To specify the training stage (or to run evaluation), simply set the `step` parameter to either 'one' or 'two' and configure the corresponding arguments.
+PIAP-Mamba training is performed in two stages. The train.py script provides a unified Trainer class designed for both phases. To specify the training stage (or to run evaluation), simply set the `step` parameter to either 'one' or 'two' and configure the corresponding arguments.
 ```python
-# main.py
+# train.py
 
 # define the trainer
 trainer = PI2MambaTrainer(

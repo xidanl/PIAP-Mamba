@@ -212,7 +212,7 @@ class PI2MambaTrainer():
                 print(f"Starting evaluate for epoch {epoch}")
                 self.evaluate(save_pic=True)
     
-    def evaluate(self, model_ckpt_path=None, save_pic=False, combine=False):
+    def evaluate(self, model_ckpt_path=None, save_pic=False):
         
         if model_ckpt_path:
             print(f"Starting test for {model_ckpt_path}:")
@@ -244,18 +244,12 @@ class PI2MambaTrainer():
                 intras_t = intras_t.to(self.args.device).float() 
                 
                 with torch.no_grad():
-                    pred_intras, _ = model(extras_t)
-
-                    if combine:
-                        pred_intras = (0.2) * pred_intras + (0.8) * extras_t 
+                    pred_intras, _ = model(extras_t) 
         
                     pred_intras = pred_intras.reshape(-1,8000).cpu().numpy()
                     gt_intras = intras_t.reshape(-1,8000).cpu().numpy()
 
                 pred_intras_new, intras_t_new = autro_correct(pred_intras, gt_intras)
-
-                if pred_intras_new is None or len(pred_intras_new) == 0:
-                    continue
 
                 pred_intras_apd = get_all_apds_multiprocessing(pred_intras_new)
                         
