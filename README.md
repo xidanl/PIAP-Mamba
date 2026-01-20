@@ -1,4 +1,6 @@
-## PIAP-Mamba: a physics-informed two-stage Mamba model for robust reconstruction of intracellular action potentials
+## PIAP-Mamba
+
+The code implementation for "PIAP-Mamba:a physics-informed two-stage Mamba model for robust reconstruction of intracellular action potentials".
 
 ### 🚀 Installation
 ```bash
@@ -12,9 +14,8 @@ conda activate piap_mamba
 
 # Install necessary packages
 pip install torch
-pip install mamba_ssm casual_conv1d
-pip install numpy transformers triton 
-pip install scipy scikit-learn seaborn
+pip install mamba-ssm causal-conv1d
+pip install numpy tensorboard scipy scikit-learn seaborn
 ```
 
 ### 🧪 Download data
